@@ -87,7 +87,7 @@ const Home = () => {
     className="w-32 sm:w-44 md:w-56 lg:w-72 xl:w-80 relative z-20 drop-shadow-2xl rounded-2xl max-w-full object-contain"
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: [0, -10, 0], opacity: 1 }} // smaller float on mobile
-    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
   />
 
   <motion.img
@@ -105,7 +105,7 @@ const Home = () => {
   "
   initial={{ y: -20, opacity: 0 }}
   animate={{ y: [0, -10, 0], opacity: 1 }}   // floating effect
-  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
 />
 
 
@@ -126,7 +126,7 @@ const Home = () => {
   "
   initial={{ scale: 0.9, opacity: 0 }}
   animate={{ scale: [1, 1.08, 1], opacity: 1 }}
-  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
 />
 
 

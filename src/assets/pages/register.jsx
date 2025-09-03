@@ -103,26 +103,13 @@ if (!symbol.test(password)) {
           <input
             type="password"
             name="password"
-            placeholder="Password (min 6 char)"
+            placeholder="Password"
             required
             value={userData.password}
             onChange={handleChange}
             className="w-full border p-2 rounded text-white"
           />
-          <div className="text-white space-x-4">
-            <label>
-              <input type="radio" name="role" value="user"
-              checked={userData.role === "user"}
-              onChange={handleChange} />{" "}User
-            </label>
-            <label>
-              <input type="radio"
-              name="role"
-              value="admin"
-              checked={userData.role ==='admin'}
-              onChange={handleChange} />{" "}Admin
-            </label>
-          </div>
+          
 
           <button
             type="submit"
