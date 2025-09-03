@@ -26,6 +26,7 @@ import AdminSidebar from "./assets/Admin/Adminsidebar";
 import Users from "./assets/Admin/users";
 import { StoreContext } from "./assets/storecontext/Storecontext";
 import ScrollToTop from "./assets/pages/Scrolltotop";
+import {Toaster} from "react-hot-toast"
 
 
 
@@ -84,8 +85,10 @@ const App = () => {
             {isAdmin ? <Navigate to='/admin/dashboard'/> : <Myorder/>}
           </ProtectedRoute>
          } />
+         
         
       </Routes>
+         <Toaster position="top-right" reverseOrder={false}/>
         {!hidenav &&  <Footer/>}
     
     </>

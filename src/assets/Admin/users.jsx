@@ -22,29 +22,23 @@ const Users = () => {
 
   const handleDelete = useCallback(async (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this user?");
-    if (!confirmed) return;
-    try {
-      await axios.delete(`http://localhost:3002/userDetails/${id}`);
+    if (!confirmed) return Promise.reject();
+
+    return axios.delete(`http://localhost:3002/userDetails/${id}`).then(() => {
       setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
-    } catch (err) {
-      console.error("Error deleting user:", err);
-      setError("Failed to delete user. Please try again.");
-    }
+    });
   }, []);
 
   const toggleBlockStatus = useCallback(async (id, currentStatus) => {
     const newStatus = currentStatus === "active" ? "blocked" : "active";
-    try {
-      await axios.patch(`http://localhost:3002/userDetails/${id}`, { status: newStatus });
+
+    return axios.patch(`http://localhost:3002/userDetails/${id}`, { status: newStatus }).then(() => {
       setUsers((prevUsers) =>
         prevUsers.map((user) =>
           user.id === id ? { ...user, status: newStatus } : user
         )
       );
-    } catch (err) {
-      console.error("Error updating user status:", err);
-      setError("Failed to update user status.");
-    }
+    });
   }, []);
 
   return (

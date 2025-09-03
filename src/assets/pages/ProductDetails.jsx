@@ -1,36 +1,32 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { StoreContext } from "../storecontext/Storecontext";  
+import { StoreContext } from "../storecontext/Storecontext";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const location =useLocation()
+  const location = useLocation();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { addToCart,cartItems } = useContext(StoreContext);
+  const { addToCart, cartItems } = useContext(StoreContext);
 
-  const singleProduct= location.state?.singleProduct; 
+  const singleProduct = location.state?.singleProduct;
 
-  // useEffect(()=>{
-  //   if(singleProduct){
-  //     setProduct([singleProduct])
-  //   }else{
-  //     setProduct(cartItems)
-  //   }
-  // },[cartItems, singleProduct])
-
- useEffect(() => {
-    setLoading(true)
-    axios.get(`http://localhost:3002/menuItems/${id}`).then((res) => {
-      setProduct(res.data);
-    }).catch((err)=>{
-        console.error("Failed to fetch product:",err);
-        setProduct(null)
-    }).finally(()=>{
-        setLoading(false)
-    })
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`http://localhost:3002/menuItems/${id}`)
+      .then((res) => {
+        setProduct(res.data);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch product:", err);
+        setProduct(null);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [id]);
 
   const handleAddToCart = () => {
@@ -38,18 +34,12 @@ const ProductDetails = () => {
     navigate("/cart");
   };
 
-  // const handleOrderNow = () => {
-  //   navigate("/order", { state: { product } });
-  // };
-
- const itemsOrder =singleProduct ? [singleProduct] : cartItems
-
-    const isInCart = product && cartItems.some((item) => item.id === product.id);
-  
+  const isInCart =
+    product && cartItems.some((item) => item.id === product.id);
 
   if (loading) {
     return (
-      <div className="min-h-screen flex justify-center items-center text-yellow-400 text-xl font-semibold">
+      <div className="min-h-screen flex justify-center items-center text-yellow-400 text-xl font-semibold pt-24">
         Loading product details...
       </div>
     );
@@ -57,21 +47,23 @@ const ProductDetails = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen flex justify-center items-center text-red-500 text-xl font-semibold">
+      <div className="min-h-screen flex justify-center items-center text-red-500 text-xl font-semibold pt-24">
         Product not found.
       </div>
     );
   }
 
-
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-      <div className="bg-gray-700 rounded-lg shadow-lg max-w-4xl w-full flex flex-col md:flex-row overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 pt-24 px-6">
+      <div className="bg-gray-700 rounded-lg shadow-lg max-w-5xl mx-auto flex flex-col md:flex-row overflow-hidden">
+        {/* Product Image */}
         <img
           src={product.img}
-          alt={product.title ||"Product"}
+          alt={product.title || "Product"}
           className="w-full md:w-1/2 h-64 md:h-auto object-cover"
         />
+
+        {/* Product Details */}
         <div className="p-6 flex flex-col justify-between md:w-1/2">
           <div>
             <h2 className="text-3xl font-bold text-yellow-400 mb-4">
@@ -85,33 +77,37 @@ const ProductDetails = () => {
             </p>
           </div>
 
-          {isInCart ? (
-          <button
-          onClick={()=>navigate("/cart")}
-          className="bg-yellow-400 text-black py-3 rounded font-semibold hover:bg-yellow-300 transition">
-            Go to Cart
-          </button>
-          ) : (
-           <button
-            onClick={handleAddToCart}
-            className="bg-yellow-400 text-black py-3 rounded font-semibold hover:bg-yellow-300 transition"
-          >
-            Add to Cart
-          </button>
-          )}
-          <br />
+          {/* Action Buttons */}
+          <div className="flex flex-col gap-3">
+            {isInCart ? (
+              <button
+                onClick={() => navigate("/cart")}
+                className="bg-yellow-400 text-black py-3 rounded font-semibold hover:bg-yellow-300 transition"
+              >
+                Go to Cart
+              </button>
+            ) : (
+              <button
+                onClick={handleAddToCart}
+                className="bg-yellow-400 text-black py-3 rounded font-semibold hover:bg-yellow-300 transition"
+              >
+                Add to Cart
+              </button>
+            )}
 
-          <button
-          onClick={()=>navigate('/order',{state:{singleProduct: product}})}
-          className="bg-yellow-400 text-black py-3 rounded font-semibold hover:bg-yellow-300 transition">
-            Order Now
-          </button>
+            <button
+              onClick={() =>
+                navigate("/order", { state: { singleProduct: product } })
+              }
+              className="bg-yellow-400 text-black py-3 rounded font-semibold hover:bg-yellow-300 transition"
+            >
+              Order Now
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
-
 };
 
 export default ProductDetails;
-

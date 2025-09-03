@@ -256,7 +256,7 @@
       "email": "basith@gmail.com",
       "password": "123basith",
       "role": "user",
-      "status": "blocked"
+      "status": "active"
     },
     {
       "id": "5a2e",
@@ -264,6 +264,14 @@
       "email": "naja123@gmail.com",
       "password": "naja900",
       "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "8b99",
+      "name": "Nabeel",
+      "email": "mr.nabeel@gmail.com",
+      "password": "Sanu@finu",
+      "role": "admin",
       "status": "active"
     }
   ],
@@ -1023,6 +1031,81 @@
       "paymentMethod": "UPI",
       "status": "Order Placed",
       "date": "8/30/2025, 10:07:24 PM"
+    },
+    {
+      "id": "99e7",
+      "userId": "5a2e",
+      "items": [
+        {
+          "id": "4",
+          "img": "https://i.ytimg.com/vi/hFuG4wlztMo/maxresdefault.jpg",
+          "title": "Spicy Fried Chicken Biryani",
+          "price": 215,
+          "desc": "Crispy fried chicken paired with spicy biryani rice for a bold taste experience.",
+          "category": "Biriyani",
+          "quantity": 1
+        }
+      ],
+      "name": "naja",
+      "phone": "7736110727",
+      "total": 256,
+      "address": "tvyedgbudhnbjbnbriger8fubdv;knvf",
+      "subtotal": 215,
+      "tax": 11,
+      "deliverycharge": 30,
+      "paymentMethod": "COD",
+      "status": "Order Placed",
+      "date": "9/3/2025, 3:19:09 PM"
+    },
+    {
+      "id": "0cc4",
+      "userId": "5a2e",
+      "items": [
+        {
+          "id": "7",
+          "img": "https://aartimadan.com/wp-content/uploads/2020/11/milk-powder-gulab-jamuns.jpg",
+          "title": "Gulab Jamun",
+          "category": "Dessert",
+          "price": 80,
+          "desc": "Soft deep-fried milk balls soaked in rose-flavored sugar syrup.",
+          "quantity": 2
+        }
+      ],
+      "name": "naja",
+      "phone": "7736110727",
+      "total": 198,
+      "address": "tvyedgbudhnbjbnbriger8fubdv;knvf",
+      "subtotal": 160,
+      "tax": 8,
+      "deliverycharge": 30,
+      "paymentMethod": "COD",
+      "status": "Order Placed",
+      "date": "9/3/2025, 3:27:42 PM"
+    },
+    {
+      "id": "efc4",
+      "userId": "1e43",
+      "items": [
+        {
+          "id": "4",
+          "img": "https://i.ytimg.com/vi/hFuG4wlztMo/maxresdefault.jpg",
+          "title": "Spicy Fried Chicken Biryani",
+          "price": 215,
+          "desc": "Crispy fried chicken paired with spicy biryani rice for a bold taste experience.",
+          "category": "Biriyani",
+          "quantity": 1
+        }
+      ],
+      "name": "Basith",
+      "phone": "7907851173",
+      "total": 256,
+      "address": "tvyedgbudhnbjbnbriger8fubdv;knvf",
+      "subtotal": 215,
+      "tax": 11,
+      "deliverycharge": 30,
+      "paymentMethod": "UPI",
+      "status": "Order Placed",
+      "date": "9/3/2025, 3:29:27 PM"
     }
   ],
   "wishlist": [

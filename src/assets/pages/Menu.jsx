@@ -16,14 +16,15 @@ const Menu = () => {
   const { user, wishlist, removeFromWishlist, addToWishlist } =
     useContext(StoreContext);
 
-  // Init AOS
-  useEffect(() => {
-    AOS.init({
-      duration: 500,
-      easing: "ease-in-out",
-      once: true,
-    });
-  }, []);
+ useEffect(() => {
+  AOS.init({
+    duration: 100,
+    easing: "ease-out", 
+    once: true,    
+    offset: 50,    
+  });
+}, []);
+
 
   useEffect(() => {
     fetch("http://localhost:3002/menuItems")
