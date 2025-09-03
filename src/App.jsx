@@ -13,7 +13,7 @@ import Login from "./assets/pages/Login";
 import Register from "./assets/pages/register";
 import About from "./assets/About/About";
 import Contact from "./assets/Contact/Contact";
-import Footer from "./assets/pages/footer";
+import Footer from "./assets/pages/Footer";
 import Wishlist from "./assets/pages/Wishlist";
 import Order from "./assets/pages/Order";
 import ProtectedRoute from "./assets/pages/ProtectRoute";
