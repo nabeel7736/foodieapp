@@ -19,11 +19,11 @@ import Order from "./assets/pages/Order";
 import ProtectedRoute from "./assets/pages/ProtectRoute";
 import Myorder from "./assets/pages/MyOrder";
 import Dashboard from "./assets/Admin/Dashboard";
-import UsersManagement from "./assets/Admin/Usermanagment";
-import MenuManagement from "./assets/Admin/Menumanagment";
+import UsersManagement from "./assets/Admin/usermanagment";
+import MenuManagement from "./assets/Admin/menumanagment";
 import AdminProtectedRoute from "./assets/Admin/Adminrouter";
 import AdminSidebar from "./assets/Admin/Adminsidebar";
-import Users from "./assets/Admin/Users";
+import Users from "./assets/Admin/users";
 import { StoreContext } from "./assets/storecontext/Storecontext";
 import ScrollToTop from "./assets/pages/Scrolltotop";
 
